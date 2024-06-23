@@ -1,0 +1,118 @@
+﻿@model IEnumerable<semana4.ViewModels.FuncionViewModel>
+
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('/Images/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .table {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .table th, .table td {
+                vertical-align: middle;
+            }
+
+            .table thead {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .table th, .table td {
+                border: 1px solid #dee2e6;
+                padding: 8px;
+            }
+
+            .table a {
+                color: #007bff;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+
+                .table a:hover {
+                    text-decoration: underline;
+                }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            color: #fff;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Index</h1>
+
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Funcion.Dia)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Funcion.Horario)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Funcion.Lenguaje)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().PeliculaTitulo)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Funcion.Dia)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Funcion.Horario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Funcion.Lenguaje)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PeliculaTitulo)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Funcion.IdFuncion" class="btn btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Funcion.IdFuncion" class="btn btn-secondary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Funcion.IdFuncion" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

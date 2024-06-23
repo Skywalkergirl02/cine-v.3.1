@@ -1,0 +1,109 @@
+﻿@model semana4.Models.Funcion
+
+@{
+    
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('/Images/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            color: #fff;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Editar Función</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdFuncion" />
+
+                    <div class="form-group">
+                        <label asp-for="Dia" class="control-label">Día</label>
+                        <input asp-for="Dia" class="form-control" type="date" />
+                        <span asp-validation-for="Dia" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Horario" class="control-label">Horario</label>
+                        <input asp-for="Horario" class="form-control" type="time" />
+                        <span asp-validation-for="Horario" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Lenguaje" class="control-label">Lenguaje</label>
+                        <input asp-for="Lenguaje" class="form-control" />
+                        <span asp-validation-for="Lenguaje" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="IdPelicula" class="control-label">Película</label>
+                        <select asp-for="IdPelicula" class="form-control" asp-items="ViewBag.IdPelicula">
+                            <option value="">Seleccionar Película</option>
+                        </select>
+                        <span asp-validation-for="IdPelicula" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-4">
+                <a asp-action="Index" class="btn btn-secondary">Volver a la Lista de Funciones</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
